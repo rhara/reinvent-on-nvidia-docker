@@ -31,4 +31,5 @@ WORKDIR /root
 
 RUN git clone https://github.com/MarcusOlivecrona/REINVENT.git
 
+RUN conda install -y scikit-learn
 RUN conda install -y bokeh
