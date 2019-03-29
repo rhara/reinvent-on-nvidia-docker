@@ -16,23 +16,17 @@ RUN conda create -y -n py36 python=3.6
 ENV PATH /root/miniconda3/envs/py36/bin:$PATH
 ENV CONDA_DEFAULT_ENV py36
 ENV CONDA_PREFIX /root/miniconda3/envs/py36
-# ENV PYTHONPATH /root:$PYTHONPATH
 
 RUN conda update -y --all
 RUN conda install -y -c pytorch pytorch=0.1.12 cuda91
 RUN conda install -y -c rdkit rdkit scipy tqdm
-# RUN conda install -y -c rdkit rdkit=2017.09.2.0
-# RUN conda install -y -c conda-forge keras=2.2.2
-# RUN conda install -y -c acellera -c psi4 psi4=1.2.1 pcmsolver=1.2.1 htmd=1.13.9
-# 
-# RUN jupyter-notebook --generate-config
-# RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py
-# RUN echo 'c.NotebookApp.allow_root = True' >> /root/.jupyter/jupyter_notebook_config.py
-# RUN echo "c.NotebookApp.password = 'sha1:29a4e89b9f3d:2bc031d09642273adf9128ce40320cbc115edc02'" >> /root/.jupyter/jupyter_notebook_config.py
-# 
-# WORKDIR /root
-# RUN git clone https://github.com/compsciencelab/ligdream.git
-# 
-# COPY traindataset /root/ligdream/traindataset
-# COPY modelweights /root/ligdream/modelweights
-# COPY generate.ipynb /root/ligdream/generate.ipynb
+RUN conda install -y jupyter notebook matplotlib pandas
+
+RUN jupyter-notebook --generate-config
+RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo 'c.NotebookApp.allow_root = True' >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.password = 'sha1:29a4e89b9f3d:2bc031d09642273adf9128ce40320cbc115edc02'" >> /root/.jupyter/jupyter_notebook_config.py
+
+WORKDIR /root
+
+RUN git clone https://github.com/MarcusOlivecrona/REINVENT.git
