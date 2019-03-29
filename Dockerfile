@@ -30,3 +30,5 @@ RUN echo "c.NotebookApp.password = 'sha1:29a4e89b9f3d:2bc031d09642273adf9128ce40
 WORKDIR /root
 
 RUN git clone https://github.com/MarcusOlivecrona/REINVENT.git
+
+RUN conda install -y bokeh

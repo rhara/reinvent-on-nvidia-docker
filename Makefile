@@ -5,7 +5,7 @@ build:
 	nvidia-docker build -t $(IMAGE):$(TAG) .
 
 run:
-	nvidia-docker run -ti -v $$PWD:/supp -p 8888:8888 $(IMAGE):$(TAG)
+	nvidia-docker run -ti -v $$PWD:/supp -p 5006:5006 $(IMAGE):$(TAG)
 
 clean:
 	@running="$$(docker ps -aq)" ; \
