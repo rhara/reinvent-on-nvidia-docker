@@ -1,4 +1,4 @@
-IMAGE = h_nvidia_reinvent/cuda9.1
+IMAGE = reinvent/cuda9.1
 TAG = 0.1
 
 build:
